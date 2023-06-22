@@ -21,7 +21,7 @@ public class HorizontalCalendar: UIView {
     static var dateFormat = "EEEE, MMM d"
     
     static var selectedColor = UIColor(red: 0/255, green: 133/255, blue: 154/255, alpha: 1)
-    static var todayColor = UIColor(red: 255/255, green: 62/255, blue: 85/255, alpha: 1)
+    static var todayColor = UIColor(red: 0/255, green: 133/255, blue: 154/255, alpha: 1)
     static var textDark = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1)
     static var textLight = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1)
     static var dateColor = UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1)
@@ -140,15 +140,15 @@ public class HorizontalCalendar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func toggleCalendar() {
-        let shouldShow = arrow.transform == CGAffineTransform.identity
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.collectionView.isHidden = shouldShow
-            self?.weekDays.isHidden = shouldShow
-            self?.arrow.transform = CGAffineTransform(rotationAngle: shouldShow ? .pi : 0)
-            self?.dateViewToBottom.isActive = shouldShow
-            self?.collectionViewToBottom.isActive = !shouldShow
-        })
+    public func toggleCalendar() {
+        let shouldShow = false //arrow.transform == CGAffineTransform.identity
+//        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+        self.collectionView.isHidden = shouldShow
+        self.weekDays.isHidden = shouldShow
+        self.arrow.transform = CGAffineTransform(rotationAngle: shouldShow ? .pi : 0)
+        self.dateViewToBottom.isActive = shouldShow
+        self.collectionViewToBottom.isActive = !shouldShow
+//        })
     }
 }
 
